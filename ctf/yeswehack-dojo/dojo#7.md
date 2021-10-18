@@ -107,5 +107,3 @@ This time the prototype is an array. So what happens?
 3. `Array.isArray` returns `false` as well. I didn't fully understand why, but I found some explanations here: http://web.mit.edu/jwalden/www/isArray.html. In short we have something like this: `test(function() { return Array.isArray({ __proto__: Array.prototype }); }, false);`
 4. Now includes gets called on an array for every forbidden character. But none is present, because the array is actually empty
 5. The WAF couldn't detect any hacking attempt and our XSS-name gets rendered.
-
-## PoC
