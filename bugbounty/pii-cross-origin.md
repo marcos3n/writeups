@@ -21,10 +21,10 @@ So in this case it was possible to add the `callback` parameter to the profile r
 
 But it was not possible to access this data cross origin, because the server made a referrer check. If the referrer was not the shopping site itself, the server responded with an empty body.
 
-# The bug
+## The bug
 The first try was to remove the referer header, but the body was still empty. Playing with other headers and the URL revealed an interesting bug: by adding an additional slash to the URL, the server ignored the missing referrer header and returned the users data. So instead of `/data?callback=jsonp` the target URL was now `//data?callback=jsonp`.
 
-# PoC
+## PoC
 This is how a simple PoC-page would look like
 
 ``` html
